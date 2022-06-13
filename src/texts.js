@@ -1,0 +1,7 @@
+export const Texts = [
+    'API is the acronym for Application Programming Interface, which is a software intermediary that allows two applications to talk to each other.',
+    'React allows developers to create large web applications that can change data, without reloading the page. The main purpose of React is to be fast, scalable, and simple. It works only on user interfaces in the application. This corresponds to the view in the MVC template.' ,
+    'Axios is a promised-based HTTP client for JavaScript. It has the ability to make HTTP requests from the browser and handle the transformation of request and response data.' ,
+    'VueJS is primarily used to build web interfaces and one-page applications. In saying that, it can also be applied to both desktop and mobile app development thanks to the HTML extensions and JS base working in tandem with an Electron framework - making it a heavily favoured frontend tool.' ,
+    "How long does it take to become a game developer? A bachelor's degree in video game development, computer science, or computer programming takes about four years to complete. Some game developers may learn through shorter bootcamp programs or teach themselves, which takes less time." ,
+]
