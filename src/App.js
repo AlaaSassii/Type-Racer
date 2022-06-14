@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import {Texts} from './texts'
+import Time from './Time';
 function App() {
-
-  const [text, setText] = React.useState('')
-  const [value,setValue] = React.useState('')
+  
+  const [condition,setCondition] = useState(false)
+  const [text, setText] = useState('')
+  const [value,setValue] = useState('')
   const [error,setErrors] = useState(0) ; 
   useEffect(()=>{
     setValue('')
@@ -13,7 +15,6 @@ function App() {
     setText(Texts[randomIndex])
 
   },[])
-  const [condition,setCondition] = useState(false)
   function newText(len){
     let char = []
     for(let i = 0 ; i < len ; i++ ){
@@ -22,22 +23,20 @@ function App() {
     return char 
   
   }
-  function style(index,length,value){
-    if (index + 1 <= length){
+  function style(index,value){
+      let err = 0 
       if (value === text[index]){ 
-        console.log('true')
-        return 'true' }
+    console.log('styleee')
+
+        return ['true',err] }
       else {
-        console.log('false')
-        setErrors(error + 1)
-        return 'false'}
-    }
-    else {
-    console.log('')
-    return ''}
+        // setErrors(error + 1)
+    console.log('styleee')
+        
+        return ['false',err]}
   }
   useEffect(()=>{
-  if(newText(text.length).length === value.length) {
+  if(newText(text.length).length === value.length ) {
     let Cond = false 
     for(let i = 0 ; i < value.length ; i++ ){
       if (value[i] !== text[i] ) {
@@ -48,18 +47,23 @@ function App() {
     }
     // console.log(Cond)
     setCondition(Cond)
+    console.log('useEffect check value')
   }
+  if(value.length +1 === text.length)console.log('trueeeeee')
   },[value])
   return (
     <div className="App">
+      <Time condition={condition} textLength={text.length}/>
      <h4>{
       newText(text.length).map((char,index)=> <span
-      className={style(index,value.length,value[index])}
+      className={ index < value.length ?style(index,value[index])[0] : ''}
       key={index}>{char}</span>)
       }</h4>
-     <input value={value} onChange={ e =>{if(!condition){!(e.target.value.length === text.length) &&  setValue(e.target.value)}
+     <input value={value} onChange={ e =>{if(!condition){!(e.target.value.length  -1 === text.length) &&  setValue(e.target.value)}
     else {e.target.blur()}
+    
     }} />
+    
     </div>
   );
 }
