@@ -53,7 +53,7 @@ function App() {
   },[value])
   return (
     <div className="App">
-      <Time condition={condition} textLength={text.length}/>
+      <Time condition={condition} textLength={text.length} valueLen={value.length} />
      <h4>{
       newText(text.length).map((char,index)=> <span
       className={ index < value.length ?style(index,value[index])[0] : ''}

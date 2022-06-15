@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from 'react'
+import Car from './Car';
 
-const Time = ({condition , textLength}) => {
+const Time = ({condition , textLength , valueLen}) => {
     console.log('condition',condition)
     const [WPM ,setWPM] = useState(0)
     const [baseTime,setBaseTime] = useState('') ; 
@@ -35,6 +36,7 @@ const Time = ({condition , textLength}) => {
   return (
     
     <div className="App">
+      <Car textLength={textLength} valueLen={valueLen}  />
         {condition && <p>{WPM}</p> }
         {timeLeft.hours || timeLeft.minutes || timeLeft.seconds ?
     <p>

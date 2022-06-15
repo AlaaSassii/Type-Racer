@@ -44,3 +44,17 @@
   color:rgb(151, 227, 0)
 
 }
+.underline{
+  width: 100%;
+  border-bottom: #282c34 solid 2px;
+}
+.CarCompo{
+  text-align: left;
+  width: 100%;
+  border: #61dafb solid 1px;
+
+}
+.CarCompo img {
+  width: 9%;
+  border: #61dafb solid;
+}
